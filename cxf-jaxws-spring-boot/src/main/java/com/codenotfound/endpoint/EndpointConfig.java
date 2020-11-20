@@ -7,6 +7,7 @@ import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.tempuri.BasicHttpBinding_IServiceImpl;
 
 @Configuration
 public class EndpointConfig {
@@ -17,7 +18,7 @@ public class EndpointConfig {
   @Bean
   public Endpoint endpoint() {
     EndpointImpl endpoint =
-        new EndpointImpl(bus, new HelloWorldImpl());
+        new EndpointImpl(bus, new BasicHttpBinding_IServiceImpl());
     endpoint.publish("/helloworld");
 
     return endpoint;
